@@ -1,0 +1,49 @@
+.container {
+    border: 1px solid black;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+}
+
+li {
+    color: gray;
+    padding: 3px 10px 3px 10px;
+}
+
+li:hover {
+    color: black;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.persist {
+    color: black;
+    text-decoration: underline;
+}
+
+.separation-bar {
+    border-left: 1px solid black;
+}
+
+.adjut-container {
+    padding: 30px;
+}
+
+.tab-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    text-align: justify;
+    padding: 20px;
+}
