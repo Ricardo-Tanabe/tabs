@@ -19,12 +19,23 @@ function indexPersistItem(item) {
     return false;
 }
 
+function multableContainerUpdate(element) {
+    multableContainer.classList.remove('slide-in');
+    void multableContainer.offsetWidth;
+    multableContainer.classList.add('slide-out');
+    setTimeout(() => {
+        multableContainer.classList.remove('slide-out');
+        multableContainer.innerHTML = itemDict[element.innerHTML];
+        void multableContainer.offsetWidth;
+        multableContainer.classList.add('slide-in');
+    }, 500)
+}
+
 tabSelector.forEach(element => {
     element.addEventListener('click', () => {
         tabSelector.forEach(item => { item.classList.remove("persist"); });
         element.classList.add("persist");
-        multableContainer.innerHTML = itemDict[element.innerHTML]
-        console.log(itemDict[element.innerHTML])
+        multableContainerUpdate(element)
     });
 })
 
@@ -33,7 +44,6 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault()
         Array.from(tabSelector).some(item => indexPersistItem(item));
         const itemPersist = document.querySelector('.persist');
-        multableContainer.innerHTML = itemDict[itemPersist.innerHTML]
-        console.log(itemDict[itemPersist.innerHTML])
+        multableContainerUpdate(itemPersist);
     }
 })
